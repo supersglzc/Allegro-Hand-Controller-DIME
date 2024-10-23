@@ -7,12 +7,20 @@
 #include "allegro_hand_driver/AllegroHandDrv.h"
 #include "std_msgs/Float64MultiArray.h"
 
+// std::string jointNames[DOF_JOINTS] =
+//         {
+//                 "joint_0.0", "joint_1.0", "joint_2.0", "joint_3.0",
+//                 "joint_4.0", "joint_5.0", "joint_6.0", "joint_7.0",
+//                 "joint_8.0", "joint_9.0", "joint_10.0", "joint_11.0",
+//                 "joint_12.0", "joint_13.0", "joint_14.0", "joint_15.0"
+//         };
+
 std::string jointNames[DOF_JOINTS] =
         {
-                "joint_0.0", "joint_1.0", "joint_2.0", "joint_3.0",
-                "joint_4.0", "joint_5.0", "joint_6.0", "joint_7.0",
-                "joint_8.0", "joint_9.0", "joint_10.0", "joint_11.0",
-                "joint_12.0", "joint_13.0", "joint_14.0", "joint_15.0"
+                "jmf1", "jmf2", "jmf3", "jmf4",
+                "jpf1", "jpf2", "jpf3", "jpf4",
+                "jif1", "jif2", "jif3", "jif4",
+                "jth1", "jth2", "jth3", "jth4",
         };
 
 
