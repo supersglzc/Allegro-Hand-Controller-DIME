@@ -5,7 +5,7 @@ import os
 import numpy as np
 import yaml
 import csv
-
+import time
 # Other ROS imports
 import rospy
 from sensor_msgs.msg import JointState
@@ -46,6 +46,8 @@ class AllegroController(object):
         self.current_joint_pose = DEFAULT_VAL
         self.grav_comp = DEFAULT_VAL
         self.cmd_joint_state = DEFAULT_VAL
+
+        time.sleep(1)
         
     def _sub_callback_joint_state(self, data):
         self.current_joint_pose = data
@@ -72,7 +74,7 @@ class AllegroController(object):
         desired_js = copy(self.current_joint_pose)
         desired_js.position = list(desired_angles)
         desired_js.effort = list([])
-
+        print('Publishing the desired joint angles:', desired_js.position)
         self.joint_comm_publisher.publish(desired_js)
 
     def apply_joint_torque(self, action=np.zeros(16)):

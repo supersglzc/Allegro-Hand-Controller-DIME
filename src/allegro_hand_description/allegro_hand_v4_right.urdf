@@ -11,11 +11,12 @@
     <color rgba="1 1 1 1"/>
   </material>
 
-  <link name="base_link">
+  <link name="palm_link">
     <visual>
       <geometry>
         <mesh filename="package://allegro_hand_description/meshes_v4/40_10_link_g_r.stl" scale ="0.001 0.001 0.001"/>
       </geometry>
+      <material name="black"/>
     </visual>
     <collision>
       <geometry>
@@ -29,6 +30,155 @@
        izz="6.2229538e-04"/>
     </inertial>
   </link>
+
+  <!--Index FInger-->
+
+  <link name="if1">
+    <visual>
+      <geometry>
+        <mesh filename="package://allegro_hand_description/meshes_v4/40_10_link_f1.stl" scale ="0.001 0.001 0.001"/>
+      </geometry>      
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://allegro_hand_description/meshes_v4/40_10_link_f1.stl" scale ="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="1.1350110e-02"/>
+      <inertia ixx="  2.7007029e-06" ixy="3.1772169e-09" ixz="-9.9625685e-09" 
+       iyy="2.0578543e-06" iyz="4.1823243e-09" 
+       izz="1.2713693e-06"/>
+    </inertial>
+  </link>
+  <joint name="jif1" type="revolute">
+    <parent link="palm_link"/>
+    <child link="if1"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy = "-0.0872665 0 0" xyz ="0 0.045098 0.014293 "/>
+    <limit lower="-0.57" upper="0.57" effort="10" velocity="3"/>
+  </joint>
+
+<link name="if2">
+    <visual>
+      <geometry>
+        <mesh filename="package://allegro_hand_description/meshes_v4/40_10_link_f2.stl" scale ="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black"/>
+      <origin rpy = " -1.5708  -1.5708 0" xyz ="0 0 0 "/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://allegro_hand_description/meshes_v4/40_10_link_f2.stl" scale ="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy = " -1.5708  -1.5708 0" xyz ="0 0 0 "/>
+    </collision>
+    <inertial>
+      <mass value="7.1189096e-02"/>
+      <inertia ixx="7.0483360e-06" ixy="2.7238745e-06" ixz="-5.7605847e-07" 
+       iyy=" 7.7935727e-05" iyz="2.1115155e-08" 
+       izz="7.6656552e-05"/>
+    </inertial>
+  </link>
+  <joint name="jif2" type="revolute">
+    <parent link="if1"/>
+    <child link="if2"/>
+    <origin rpy = "0 0 0" xyz ="0 0 0 "/>
+    <limit lower="-0.296" upper="1.71" effort="10" velocity="3"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <link name="if3">
+    <visual>
+      <geometry>
+        <mesh filename="package://allegro_hand_description/meshes_v4/40_10_link_f3.stl" scale ="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+      <origin rpy = "-1.5708 0 0" xyz ="0 0 0 "/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://allegro_hand_description/meshes_v4/40_10_link_f3.stl" scale ="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy = "-1.5708 0 0" xyz ="0 0 0 "/>
+    </collision>
+    <inertial>
+      <mass value="3.7588606e-02"/>
+      <inertia ixx="3.8700419e-06" ixy=" 9.4859852e-07" ixz="-3.4727103e-07" 
+       iyy=" 2.9392367e-05" iyz="4.1019588e-08" 
+       izz="2.8178175e-05"/>
+    </inertial>
+  </link>
+
+  <joint name="jif3" type="revolute">
+    <parent link="if2"/>
+    <child link="if3"/>
+    <origin xyz= "0 0 0.054" rpy = "0 -1.5708 0"/>
+    <limit lower="-0.274" upper="1.809" effort="10" velocity="3"/>
+    <axis xyz="0 1 0"/>
+  </joint> 
+
+
+  <link name="if4">
+    <visual>
+      <geometry>
+        <mesh filename="package://allegro_hand_description/meshes_v4/40_10_link_f4.stl" scale ="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black"/>
+      <origin rpy = "-1.5708 0 0" xyz ="0 0 0 "/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://allegro_hand_description/meshes_v4/40_10_link_f4.stl" scale ="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy = "-1.5708 0 0" xyz ="0 0 0 "/>
+    </collision>
+    <inertial>
+      <mass value="9.4301124e-03"/>
+      <inertia ixx="1.2117405e-06" ixy="9.9624823e-09" ixz="6.9119137e-10" 
+       iyy="2.1794983e-06" iyz="3.1772815e-09" 
+       izz="1.5590472e-06"/>
+    </inertial>
+  </link>
+
+  <joint name="jif4" type="revolute">
+    <parent link="if3"/>
+    <child link="if4"/>
+    <origin xyz= "0.0384 0 0"/>
+     <limit lower="-0.327" upper="1.718" effort="10" velocity="3"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+
+  <link name="if5">
+    <visual>
+      <geometry>
+        <mesh filename="package://allegro_hand_description/meshes_v4/40_10_link_f5.stl" scale ="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="white"/>
+      <origin rpy = "-1.5708 0 0" xyz ="0 0 0 "/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://allegro_hand_description/meshes_v4/40_10_link_f5.stl" scale ="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy = "-1.5708 0 0" xyz ="0 0 0 "/>
+    </collision>
+    <inertial>
+      <mass value="1.6654268e-02"/>
+      <inertia ixx=" 1.4702815e-06" ixy=" 0.0000000e+00" ixz="0.0000000e+00" 
+       iyy= " 3.8502616e-06" iyz="0.0000000e+00" 
+       izz="3.8502616e-06"/>
+    </inertial>
+  </link>
+
+  <joint name="jif5" type="fixed">
+    <parent link="if4"/>
+    <child link="if5"/>
+    <origin xyz= "0.0157 0 0"/>
+  </joint>
+
   <!--Middle FInger-->
   <link name="mf1">
     <visual>
@@ -50,7 +200,7 @@
     </inertial>
   </link>
   <joint name="jmf1" type="revolute">
-    <parent link="base_link"/>
+    <parent link="palm_link"/>
     <child link="mf1"/>
     <axis xyz="0 0 1"/>
     <origin xyz ="0 0 0.0166 "/>
@@ -196,7 +346,7 @@
     </inertial>
   </link>
   <joint name="jpf1" type="revolute">
-    <parent link="base_link"/>
+    <parent link="palm_link"/>
     <child link="pf1"/>
     <axis xyz="0 0 1"/>
     <origin rpy = "0.0872665 0 0" xyz ="0 -0.045098 0.014293 "/>
@@ -231,7 +381,6 @@
     <limit lower="-0.296" upper="1.71" effort="10" velocity="3"/>
     <axis xyz="0 1 0"/>
   </joint> 
-  
 
   <link name="pf3">
     <visual>
@@ -320,156 +469,6 @@
     <child link="pf5"/>
     <origin xyz= "0.0157 0 0"/>
   </joint> 
-<!--Index FInger-->
-
-<link name="if1">
-    <visual>
-      <geometry>
-        <mesh filename="package://allegro_hand_description/meshes_v4/40_10_link_f1.stl" scale ="0.001 0.001 0.001"/>
-      </geometry>      
-      <material name="blue"/>
-    </visual>
-    <collision>
-      <geometry>
-        <mesh filename="package://allegro_hand_description/meshes_v4/40_10_link_f1.stl" scale ="0.001 0.001 0.001"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <mass value="1.1350110e-02"/>
-      <inertia ixx="  2.7007029e-06" ixy="3.1772169e-09" ixz="-9.9625685e-09" 
-       iyy="2.0578543e-06" iyz="4.1823243e-09" 
-       izz="1.2713693e-06"/>
-    </inertial>
-  </link>
-  <joint name="jif1" type="revolute">
-    <parent link="base_link"/>
-    <child link="if1"/>
-    <axis xyz="0 0 1"/>
-    <origin rpy = "-0.0872665 0 0" xyz ="0 0.045098 0.014293 "/>
-    <limit lower="-0.57" upper="0.57" effort="10" velocity="3"/>
-  </joint>
-
-<link name="if2">
-    <visual>
-      <geometry>
-        <mesh filename="package://allegro_hand_description/meshes_v4/40_10_link_f2.stl" scale ="0.001 0.001 0.001"/>
-      </geometry>
-      <material name="black"/>
-      <origin rpy = " -1.5708  -1.5708 0" xyz ="0 0 0 "/>
-    </visual>
-    <collision>
-      <geometry>
-        <mesh filename="package://allegro_hand_description/meshes_v4/40_10_link_f2.stl" scale ="0.001 0.001 0.001"/>
-      </geometry>
-      <origin rpy = " -1.5708  -1.5708 0" xyz ="0 0 0 "/>
-    </collision>
-    <inertial>
-      <mass value="7.1189096e-02"/>
-      <inertia ixx="7.0483360e-06" ixy="2.7238745e-06" ixz="-5.7605847e-07" 
-       iyy=" 7.7935727e-05" iyz="2.1115155e-08" 
-       izz="7.6656552e-05"/>
-    </inertial>
-  </link>
-  <joint name="jif2" type="revolute">
-    <parent link="if1"/>
-    <child link="if2"/>
-    <origin rpy = "0 0 0" xyz ="0 0 0 "/>
-    <limit lower="-0.296" upper="1.71" effort="10" velocity="3"/>
-    <axis xyz="0 1 0"/>
-  </joint>
-
-  <link name="if3">
-    <visual>
-      <geometry>
-        <mesh filename="package://allegro_hand_description/meshes_v4/40_10_link_f3.stl" scale ="0.001 0.001 0.001"/>
-      </geometry>
-      <material name="blue"/>
-      <origin rpy = "-1.5708 0 0" xyz ="0 0 0 "/>
-    </visual>
-    <collision>
-      <geometry>
-        <mesh filename="package://allegro_hand_description/meshes_v4/40_10_link_f3.stl" scale ="0.001 0.001 0.001"/>
-      </geometry>
-      <origin rpy = "-1.5708 0 0" xyz ="0 0 0 "/>
-    </collision>
-    <inertial>
-      <mass value="3.7588606e-02"/>
-      <inertia ixx="3.8700419e-06" ixy=" 9.4859852e-07" ixz="-3.4727103e-07" 
-       iyy=" 2.9392367e-05" iyz="4.1019588e-08" 
-       izz="2.8178175e-05"/>
-    </inertial>
-  </link>
-
-  <joint name="jif3" type="revolute">
-    <parent link="if2"/>
-    <child link="if3"/>
-    <origin xyz= "0 0 0.054" rpy = "0 -1.5708 0"/>
-    <limit lower="-0.274" upper="1.809" effort="10" velocity="3"/>
-    <axis xyz="0 1 0"/>
-  </joint> 
-
-
-  <link name="if4">
-    <visual>
-      <geometry>
-        <mesh filename="package://allegro_hand_description/meshes_v4/40_10_link_f4.stl" scale ="0.001 0.001 0.001"/>
-      </geometry>
-      <material name="black"/>
-      <origin rpy = "-1.5708 0 0" xyz ="0 0 0 "/>
-    </visual>
-    <collision>
-      <geometry>
-        <mesh filename="package://allegro_hand_description/meshes_v4/40_10_link_f4.stl" scale ="0.001 0.001 0.001"/>
-      </geometry>
-      <origin rpy = "-1.5708 0 0" xyz ="0 0 0 "/>
-    </collision>
-    <inertial>
-      <mass value="9.4301124e-03"/>
-      <inertia ixx="1.2117405e-06" ixy="9.9624823e-09" ixz="6.9119137e-10" 
-       iyy="2.1794983e-06" iyz="3.1772815e-09" 
-       izz="1.5590472e-06"/>
-    </inertial>
-  </link>
-
-  <joint name="jif4" type="revolute">
-    <parent link="if3"/>
-    <child link="if4"/>
-    <origin xyz= "0.0384 0 0"/>
-     <limit lower="-0.327" upper="1.718" effort="10" velocity="3"/>
-    <axis xyz="0 1 0"/>
-  </joint>
-
-
-  <link name="if5">
-    <visual>
-      <geometry>
-        <mesh filename="package://allegro_hand_description/meshes_v4/40_10_link_f5.stl" scale ="0.001 0.001 0.001"/>
-      </geometry>
-      <material name="white"/>
-      <origin rpy = "-1.5708 0 0" xyz ="0 0 0 "/>
-    </visual>
-    <collision>
-      <geometry>
-        <mesh filename="package://allegro_hand_description/meshes_v4/40_10_link_f5.stl" scale ="0.001 0.001 0.001"/>
-      </geometry>
-      <origin rpy = "-1.5708 0 0" xyz ="0 0 0 "/>
-    </collision>
-    <inertial>
-      <mass value="1.6654268e-02"/>
-      <inertia ixx=" 1.4702815e-06" ixy=" 0.0000000e+00" ixz="0.0000000e+00" 
-       iyy= " 3.8502616e-06" iyz="0.0000000e+00" 
-       izz="3.8502616e-06"/>
-    </inertial>
-  </link>
-
-  <joint name="jif5" type="fixed">
-    <parent link="if4"/>
-    <child link="if5"/>
-    <origin xyz= "0.0157 0 0"/>
-  </joint>
-
-
-
 
 <!--Thumb-->
   <link name="th1">
@@ -494,7 +493,7 @@
   </link>
 
   <joint name="jth1" type="revolute">
-    <parent link="base_link"/>
+    <parent link="palm_link"/>
     <child link="th1"/>
     <limit lower="0.36357" upper="1.4968" effort="10" velocity="3"/>
     <axis xyz="0 0 -1"/>
