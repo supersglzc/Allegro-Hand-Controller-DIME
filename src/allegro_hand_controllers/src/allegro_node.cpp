@@ -17,9 +17,9 @@
 
 std::string jointNames[DOF_JOINTS] =
         {
+                "jif1", "jif2", "jif3", "jif4",
                 "jmf1", "jmf2", "jmf3", "jmf4",
                 "jpf1", "jpf2", "jpf3", "jpf4",
-                "jif1", "jif2", "jif3", "jif4",
                 "jth1", "jth2", "jth3", "jth4",
         };
 
